@@ -12,19 +12,20 @@ I have tried to optimize this application by applying SOLID principles and React
 ## Project Structure
 
 app
-├── App.jsx # Root component, holds product list state
 
-├── components/
+ App.jsx # Root component, holds product list state
 
-    │ ├── AddProductForm.jsx # Form input and submission logic
+ components/
 
-    │ ├── ProductList.jsx # Displays list of products
+    - AddProductForm.jsx # Form input and submission logic
 
-    │ └── ProductItem.jsx # Renders individual product
+    - ProductList.jsx # Displays list of products
 
-├── hooks/
+    - ProductItem.jsx # Renders individual product
 
-    │ ├── useProducts.js # Keeps product state and update logic
+hooks/
+
+    - useProducts.js # Keeps product state and update logic
 
 ## Applied SOLID Principles
 
@@ -36,3 +37,4 @@ app
 ## Optimization
 
 - Used `React.memo` on ProductItem to avoid unnecessary re-renders
+- Used `useCallback` for addProduct function to avoid unnecessary re-renders
