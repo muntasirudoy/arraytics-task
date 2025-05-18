@@ -12,4 +12,6 @@ const Button = ({ variant = "primary", children, onClick }) => {
   );
 };
 
+Button.displayName = "Button";
+
 export default Button;
