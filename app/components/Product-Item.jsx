@@ -9,5 +9,4 @@ const ProductItem = React.memo(({ product }) => {
 });
 
 ProductItem.displayName = "ProductItem";
-
 export default ProductItem;
