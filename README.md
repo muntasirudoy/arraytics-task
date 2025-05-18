@@ -15,7 +15,7 @@ app
 
  App.jsx # Root component, holds product list state
 
- components/
+ components
 
     - AddProductForm.jsx # Form input and submission logic
 
@@ -23,7 +23,7 @@ app
 
     - ProductItem.jsx # Renders individual product
 
-hooks/
+hooks
 
     - useProducts.js # Keeps product state and update logic
 
