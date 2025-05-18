@@ -1,7 +1,8 @@
 const AddProductForm = ({ onAddProduct }) => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     onAddProduct({
       name,
       price: parseFloat(price),
