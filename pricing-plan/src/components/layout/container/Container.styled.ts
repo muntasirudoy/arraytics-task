@@ -5,6 +5,12 @@ export const Content = styled.div`
   margin: 0 auto;
   padding: 0 16px;
   box-sizing: border-box;
+  @media (min-width: 320px) {
+    max-width: 300px;
+  }
+  @media (min-width: 480px) {
+    max-width: 460px;
+  }
   @media (min-width: 576px) {
     max-width: 540px;
   }
