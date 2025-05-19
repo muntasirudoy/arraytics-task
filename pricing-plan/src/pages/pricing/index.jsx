@@ -1,9 +1,9 @@
 const PricingPage = () => {
   return (
-    <div>
+    <Container>
       <h1>Pricing</h1>
       <p>Pricing page content goes here.</p>
-    </div>
+    </Container>
   );
 };
 
