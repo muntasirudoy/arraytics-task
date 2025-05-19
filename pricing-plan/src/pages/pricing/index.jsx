@@ -1,3 +1,5 @@
+import Container from "../../components/layout/container/Container";
+
 const PricingPage = () => {
   return (
     <Container>
