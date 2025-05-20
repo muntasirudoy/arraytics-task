@@ -36,6 +36,13 @@ export const Price = styled.p`
   margin: 10px 0;
   color: ${({ $color }) => $color || "#ccc"};
 `;
+export const PriceSuffix = styled.span`
+  font-size: 16px;
+  font-weight: 400;
+  margin: 10px 0;
+
+  color: var(--price-suffix);
+`;
 
 export const Subtitle = styled.p`
   background-color: ${({ $bgColor, $opacity = 0.11 }) =>
@@ -52,7 +59,7 @@ export const Subtitle = styled.p`
   border-radius: 999px;
   display: inline-block;
   font-size: 12.5px;
-  font-weight: 500;
+
   color: ${({ $color }) => $color};
 `;
 

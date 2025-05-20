@@ -10,6 +10,7 @@ import {
   Price,
   SelectPlanButton,
   Subtitle,
+  PriceSuffix,
 } from "./Card.styles";
 
 const Card = ({ children, variant = "blue" }) => {
@@ -22,18 +23,22 @@ const Card = ({ children, variant = "blue" }) => {
   );
 };
 
-const Header = ({ title, price, subtitle, badge, variant }) => {
+const Header = ({ title, price, subtitle, badge, variant, suffix = "" }) => {
   const theme = cardThemes[variant] || cardThemes.blue;
 
   return (
     <CardHeader>
       {badge && <Badge bgColor={theme.badgeColor}>{badge}</Badge>}
       <CardTitle>{title}</CardTitle>
-      <Price $color={theme.primary}>{price}</Price>
+      <Price $color={theme.primary}>
+        {price} {suffix && <PriceSuffix>/{suffix}</PriceSuffix>}
+      </Price>
       {subtitle && (
-        <Subtitle $bgColor={theme.primary} $color={theme.primary}>
-          {subtitle}
-        </Subtitle>
+        <Subtitle
+          dangerouslySetInnerHTML={{ __html: subtitle }}
+          $bgColor={theme.primary}
+          $color={theme.primary}
+        />
       )}
     </CardHeader>
   );
