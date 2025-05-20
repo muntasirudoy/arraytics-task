@@ -1,63 +1,61 @@
 import styled from "styled-components";
 
 export const CardContainer = styled.div`
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
+  border: 2px solid ${({ borderColor }) => borderColor};
+  border-radius: 10px;
   padding: 24px;
   width: 100%;
   max-width: 300px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 `;
 
 export const CardHeader = styled.div`
-  text-align: center;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 `;
 
-export const CardTitle = styled.h3`
+export const CardTitle = styled.h2`
   font-size: 24px;
-  margin: 8px 0;
+  font-weight: 600;
+  margin: 0;
 `;
 
 export const Price = styled.p`
-  font-size: 20px;
-  font-weight: bold;
-  margin: 4px 0;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 10px 0;
 `;
 
-export const Subtitle = styled.div`
+export const Subtitle = styled.p`
+  background-color: #f0f0f0;
+  padding: 6px 12px;
+  border-radius: 999px;
+  display: inline-block;
   font-size: 14px;
-  color: #666;
+  font-weight: 600;
 `;
 
 export const FeatureList = styled.ul`
   list-style: none;
   padding: 0;
-  margin: 0 0 16px 0;
-  width: 100%;
+  margin: 16px 0;
 `;
 
 export const FeatureItem = styled.li`
   font-size: 14px;
-  padding: 8px 0;
-  border-bottom: 1px solid #f0f0f0;
-  text-align: left;
+  margin-bottom: 8px;
 `;
 
 export const SelectPlanButton = styled.button`
-  background-color: #007bff;
+  background-color: ${({ bgColor }) => bgColor};
   color: white;
   padding: 10px 16px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  width: 100%;
   font-weight: 600;
+
   &:hover {
-    background-color: #0056b3;
+    opacity: 0.9;
   }
 `;
