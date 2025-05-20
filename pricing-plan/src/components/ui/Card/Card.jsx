@@ -1,37 +1,57 @@
+import cardThemes from "../../../utils/card-theme";
+import Badge from "../Badge/Badge";
 import {
   CardContainer,
   CardHeader,
   CardTitle,
+  CardTopStripe,
   FeatureItem,
   FeatureList,
   Price,
   SelectPlanButton,
   Subtitle,
 } from "./Card.styles";
-import Badge from "../Badge/Badge";
 
-const Card = ({ children, borderColor }) => {
-  return <CardContainer borderColor={borderColor}>{children}</CardContainer>;
+const Card = ({ children, variant = "blue" }) => {
+  const theme = cardThemes[variant] || cardThemes.blue;
+  return (
+    <CardContainer $borderColor={theme.borderColor}>
+      <CardTopStripe $bgColor={theme.primary} />
+      {children}
+    </CardContainer>
+  );
 };
 
-const Header = ({ title, price, subtitle, badge }) => (
-  <CardHeader>
-    {badge && <Badge>{badge}</Badge>}
-    <CardTitle>{title}</CardTitle>
-    <Price>{price}</Price>
-    {subtitle && <Subtitle>{subtitle}</Subtitle>}
-  </CardHeader>
-);
+const Header = ({ title, price, subtitle, badge, variant }) => {
+  const theme = cardThemes[variant] || cardThemes.blue;
+
+  return (
+    <CardHeader>
+      {badge && <Badge bgColor={theme.badgeColor}>{badge}</Badge>}
+      <CardTitle>{title}</CardTitle>
+      <Price $color={theme.primary}>{price}</Price>
+      {subtitle && (
+        <Subtitle $bgColor={theme.primary} $color={theme.primary}>
+          {subtitle}
+        </Subtitle>
+      )}
+    </CardHeader>
+  );
+};
 
 const Features = ({ children }) => <FeatureList>{children}</FeatureList>;
 
 const Feature = ({ children }) => <FeatureItem>{children}</FeatureItem>;
 
-const Action = ({ onClick, label, bgColor }) => (
-  <SelectPlanButton onClick={onClick} bgColor={bgColor}>
-    {label}
-  </SelectPlanButton>
-);
+const Action = ({ onClick, label, variant }) => {
+  const theme = cardThemes[variant] || cardThemes.blue;
+
+  return (
+    <SelectPlanButton onClick={onClick} $bgColor={theme.buttonColor}>
+      {label}
+    </SelectPlanButton>
+  );
+};
 
 Card.Header = Header;
 Card.Features = Features;

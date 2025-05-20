@@ -1,7 +1,11 @@
-import { StyledBadge } from "./Badge.styles";
+import { StyledBadge } from "./Badge.style";
 
-const Badge = ({ children }) => {
-  return <StyledBadge>{children}</StyledBadge>;
+const Badge = ({ children, bgColor, rounded }) => {
+  return (
+    <StyledBadge $bgColor={bgColor} $rounded={rounded}>
+      {children}
+    </StyledBadge>
+  );
 };
 
 Badge.displayName = "Badge";
