@@ -12,7 +12,8 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: var(--font-family-base);
-    background-color: #f9f9f9;
+    height: 100vh;
+background: linear-gradient(180deg, rgba(183, 141, 235, .1), rgba(183, 141, 235, 0) 28.39%), #fff;
   }
 
   *, *::before, *::after {

@@ -1,12 +1,63 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "../../components/ui/Card/Card";
 import Dropdown from "../../components/ui/Dropdown/Dropdown";
-import { Grid } from "./Pricing.styles";
-
+import { Grid, TabContainer, PricingContainer } from "./Pricing.styles";
+import Tabs from "../../components/ui/Tabs";
+import Badge from "../../components/ui/Badge";
+import cardThemes from "../../utils/card-theme";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  loadPlanData,
+  setBillingCycle,
+  setSelectedGrowthPlan,
+} from "../../store/actions/pricing-action";
+import planData from "./plans.data.json";
 const Pricing = () => {
   const [selectedPlan, setSelectedPlan] = useState(null);
+  const dispatch = useDispatch();
+  const { plans, plansInfo, features, selectedCycle, selectedGrowthPlan } =
+    useSelector((state) => state.plan);
+  console.log(selectedCycle, selectedGrowthPlan);
+
+  useEffect(() => {
+    dispatch(loadPlanData(planData));
+  }, [dispatch]);
+  const handleCycleChange = (cycle) => {
+    dispatch(setBillingCycle(cycle));
+  };
+
+  const handleGrowthSelect = (value) => {
+    dispatch(setSelectedGrowthPlan(value));
+  };
   return (
-    <>
+    <PricingContainer>
+      <TabContainer>
+        <Tabs defaultIndex={selectedCycle === "1_year" ? 1 : 0}>
+          <Tabs.Tab onClick={() => handleCycleChange("1_month")}>
+            Billed monthly
+          </Tabs.Tab>
+          <Tabs.Tab onClick={() => handleCycleChange("1_year")}>
+            Billed yearly
+          </Tabs.Tab>
+          <Tabs.Panel>
+            <p>This is the Monthly content.</p>
+          </Tabs.Panel>
+          <Tabs.Panel>
+            <p>This is the Yearly content.</p>
+          </Tabs.Panel>
+        </Tabs>
+        <Badge
+          bgColor={cardThemes["purple"].primary}
+          opacity={0.15}
+          rounded={true}
+          color={"#49687E"}
+          style={{
+            fontSize: "16px",
+          }}
+        >
+          Save 20% 😍
+        </Badge>
+      </TabContainer>
       <Grid>
         <Card variant="green">
           <Card.Header
@@ -106,7 +157,7 @@ const Pricing = () => {
           />
         </Card>
       </Grid>
-    </>
+    </PricingContainer>
   );
 };
 

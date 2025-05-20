@@ -10,6 +10,7 @@ const Badge = ({
   color,
   padding,
   icon,
+  ...props
 }) => {
   return (
     <StyledBadge
@@ -18,13 +19,14 @@ const Badge = ({
       $rounded={rounded}
       $color={color}
       $padding={padding}
+      {...props}
     >
       {children}{" "}
       {icon && (
         <>
           <Tooltip position="top">
             <Tooltip.Trigger>
-              <span style={{ textDecoration: "underline", cursor: "help" }}>
+              <span style={{ textDecoration: "underline", cursor: "info" }}>
                 <InfoIcon />
               </span>
             </Tooltip.Trigger>

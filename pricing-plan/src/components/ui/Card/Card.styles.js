@@ -12,7 +12,7 @@ export const CardTopStripe = styled.div`
 export const TopBadge = styled.div`
   position: absolute;
   top: 15px;
-  right: 10px;
+  right: 8px;
 `;
 export const CardContainer = styled.div`
   border: 1px solid ${({ $borderColor }) => $borderColor || "#ccc"};
@@ -20,7 +20,7 @@ export const CardContainer = styled.div`
   padding: 20px;
   width: 100%;
   min-width: 258px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+
   position: relative;
 `;
 
@@ -52,7 +52,7 @@ export const PriceSuffix = styled.span`
 export const FeatureList = styled.ul`
   list-style: none;
   padding: 0;
-  margin: 16px 0;
+  margin: 16px 0 50px;
 `;
 
 export const FeatureItem = styled.li`
@@ -70,9 +70,15 @@ export const SelectPlanButton = styled.button`
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  width: 100%;
+  width: 85%;
   font-weight: 500;
   font-size: 16px;
+  position: absolute;
+  bottom: 20px;
+  margin: 0 auto;
+
+  right: 0;
+  left: 0;
   &:hover {
     opacity: 0.9;
   }

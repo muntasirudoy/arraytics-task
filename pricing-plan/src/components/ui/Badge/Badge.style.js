@@ -19,4 +19,5 @@ export const StyledBadge = styled.span`
   align-items: center;
   height: fit-content;
   gap: 5px;
+  white-space: nowrap;
 `;
