@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
     --primary-color: #49687E;
     --price-suffix: #83a1b7
   }
+
   body {
     margin: 0;
     padding: 0;

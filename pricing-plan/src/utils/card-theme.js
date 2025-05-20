@@ -15,17 +15,17 @@ const cardThemes = {
   },
   green: {
     borderColor: "#eaeff2",
-    buttonColor: "#4CAF50",
+    buttonColor: "#68cb9b",
     subtitleBg: "#E8F5E9",
-    badgeColor: "#4CAF50",
-    primary: "#4CAF50",
+    badgeColor: "#68cb9b",
+    primary: "#68cb9b",
   },
   purple: {
     borderColor: "#eaeff2",
-    buttonColor: "#9C27B0",
+    buttonColor: "#b78deb",
     subtitleBg: "#F3E5F5",
-    badgeColor: "#9C27B0",
-    primary: "#9C27B0",
+    badgeColor: "#b78deb",
+    primary: "#b78deb",
   },
 };
 
