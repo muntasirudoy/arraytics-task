@@ -5,6 +5,7 @@ import {
   DropdownMenu,
   DropdownTrigger,
 } from "./Dropdown.styles";
+import cardThemes from "../../../utils/card-theme";
 
 const DropdownContext = createContext();
 
@@ -16,19 +17,37 @@ const useDropdownContext = () => {
   return context;
 };
 
-const Dropdown = ({ children }) => {
+const Dropdown = ({
+  children,
+  variant = "",
+  value: controlledValue,
+  onChange,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState(null);
+
+  const [uncontrolledValue, setUncontrolledValue] = useState(null);
 
   const toggle = () => setIsOpen((prev) => !prev);
+  const isControlled = controlledValue !== undefined;
+  const selectedItem = isControlled ? controlledValue : uncontrolledValue;
+
   const selectItem = (value) => {
-    setSelectedItem(value);
+    if (!isControlled) {
+      setUncontrolledValue(value);
+    }
+    onChange?.(value);
     setIsOpen(false);
   };
 
   return (
     <DropdownContext.Provider
-      value={{ isOpen, toggle, selectedItem, selectItem }}
+      value={{
+        isOpen,
+        toggle,
+        selectedItem,
+        selectItem,
+        variant,
+      }}
     >
       <DropdownContainer>{children}</DropdownContainer>
     </DropdownContext.Provider>
@@ -36,9 +55,15 @@ const Dropdown = ({ children }) => {
 };
 
 const Trigger = ({ children }) => {
-  const { toggle, selectedItem } = useDropdownContext();
+  const { toggle, selectedItem, variant } = useDropdownContext();
+  const theme = cardThemes[variant] || cardThemes.blue;
   return (
-    <DropdownTrigger onClick={toggle}>
+    <DropdownTrigger
+      $borderColor={theme.primary}
+      $bgColor={theme.primary}
+      $color={theme.primary}
+      onClick={toggle}
+    >
       {selectedItem || children}
     </DropdownTrigger>
   );
@@ -57,9 +82,18 @@ const Menu = ({ children }) => {
 };
 
 const Item = ({ value, children }) => {
-  const { selectItem } = useDropdownContext();
+  const { selectItem, variant, selectedItem } = useDropdownContext();
+  const isSelected = selectedItem === value;
+  const theme = cardThemes[variant] || cardThemes.blue;
   return (
-    <DropdownItem onClick={() => selectItem(value)}>{children}</DropdownItem>
+    <DropdownItem
+      $hoverBgColor={theme.primary}
+      $color={theme.primary}
+      isSelected={isSelected}
+      onClick={() => selectItem(value)}
+    >
+      {children}
+    </DropdownItem>
   );
 };
 

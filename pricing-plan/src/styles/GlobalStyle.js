@@ -4,7 +4,8 @@ const GlobalStyle = createGlobalStyle`
   :root {
     --font-family-base: 'Rubik', sans-serif;
     --primary-color: #49687E;
-    --price-suffix: #83a1b7
+    --price-suffix: #83a1b7;
+    --tooltip-text-color: #49687E
   }
 
   body {

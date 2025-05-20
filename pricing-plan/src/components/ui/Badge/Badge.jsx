@@ -1,4 +1,5 @@
 import InfoIcon from "../../icons/InfoIcon";
+import Tooltip from "../Tooltip/Tooltip";
 import { StyledBadge } from "./Badge.style";
 
 const Badge = ({
@@ -18,7 +19,22 @@ const Badge = ({
       $color={color}
       $padding={padding}
     >
-      {children} {icon && <InfoIcon />}
+      {children}{" "}
+      {icon && (
+        <>
+          <Tooltip position="top">
+            <Tooltip.Trigger>
+              <span style={{ textDecoration: "underline", cursor: "help" }}>
+                <InfoIcon />
+              </span>
+            </Tooltip.Trigger>
+            <Tooltip.Content>
+              Trigger the widget on exit intent, after a certain time period, or
+              when user scrolls to a specific part of the website.
+            </Tooltip.Content>
+          </Tooltip>
+        </>
+      )}
     </StyledBadge>
   );
 };

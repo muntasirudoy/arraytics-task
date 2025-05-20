@@ -1,5 +1,6 @@
 import cardThemes from "../../../utils/card-theme";
-import Badge from "../Badge/Badge";
+import Badge from "../Badge";
+
 import {
   CardContainer,
   CardHeader,

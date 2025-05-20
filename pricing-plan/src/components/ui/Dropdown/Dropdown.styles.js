@@ -9,19 +9,49 @@ export const DropdownContainer = styled.div`
 
 export const DropdownTrigger = styled.button`
   width: 100%;
-  padding: 12px 16px;
-  font-size: 14px;
-  border-radius: 8px;
-  background-color: #f6f4ff;
-  border: 1px solid #e0d8ff;
-  color: #5f37ef;
+  padding: 8px 12px;
+  font-size: 13px;
+  border-radius: 5px;
+  text-transform: capitalize;
+  background-color: ${({ $bgColor, $opacity = 0.1 }) =>
+    $bgColor
+      ? `${$bgColor}${
+          typeof $opacity === "number"
+            ? Math.round($opacity * 255)
+                .toString(16)
+                .padStart(2, "0")
+            : ""
+        }`
+      : "transparent"};
+  border: 1px solid
+    ${({ $borderColor, $opacity = 0.5 }) =>
+      $borderColor
+        ? `${$borderColor}${
+            typeof $opacity === "number"
+              ? Math.round($opacity * 255)
+                  .toString(16)
+                  .padStart(2, "0")
+              : ""
+          }`
+        : "transparent"};
+  color: ${({ $color }) => $color};
   text-align: left;
   cursor: pointer;
   position: relative;
   transition: box-shadow 0.2s ease;
-
+  font-family: var(--font-family-base);
   &:hover {
-    box-shadow: 0 0 0 2px #ddd6fe;
+    box-shadow: 0 0 0 1px
+      ${({ $color, $opacity = 0.3 }) =>
+        $color
+          ? `${$color}${
+              typeof $opacity === "number"
+                ? Math.round($opacity * 255)
+                    .toString(16)
+                    .padStart(2, "0")
+                : ""
+            }`
+          : "transparent"};
   }
 
   &::after {
@@ -66,11 +96,11 @@ export const DropdownMenu = styled.ul`
   top: 110%;
   width: 100%;
   background: white;
-  border-radius: 12px;
+  border-radius: 8px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   list-style: none;
-  padding: 8px 0;
-  margin: 8px 0 0 0;
+  padding: 0;
+  margin: 2px 0 0 0;
   z-index: 10;
   animation: ${({ isOpen }) => (isOpen ? bounceIn : bounceOut)} 0.25s ease
     forwards;
@@ -78,22 +108,33 @@ export const DropdownMenu = styled.ul`
 `;
 
 export const DropdownItem = styled.li`
-  padding: 12px 16px;
+  padding: 10px 12px;
   font-size: 14px;
   cursor: pointer;
+  font-weight: 400;
+
   color: #333;
   transition: background 0.2s ease, color 0.2s ease;
-
+  border: 1px solid #f6f4ff;
   &:hover {
-    background-color: #f6f4ff;
-    color: #5f37ef;
+    background-color: ${({ $hoverBgColor, $opacity = 0.1 }) =>
+      $hoverBgColor
+        ? `${$hoverBgColor}${
+            typeof $opacity === "number"
+              ? Math.round($opacity * 255)
+                  .toString(16)
+                  .padStart(2, "0")
+              : ""
+          }`
+        : "transparent"};
+    color: ${({ $color }) => $color || "#5f37ef"};
   }
 
   ${({ isSelected }) =>
     isSelected &&
     `
     background-color: #f6f4ff;
-    color: #5f37ef;
+    color: ${({ $color }) => $color || "#5f37ef"};
     font-weight: 500;
   `}
 `;
