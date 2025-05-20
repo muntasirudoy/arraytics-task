@@ -6,31 +6,50 @@ import {
   TabsWrapper,
 } from "./Tabs.styles";
 
-const Tabs = ({ children, defaultIndex = 0 }) => {
-  const [activeIndex, setActiveIndex] = useState(defaultIndex);
+const Tabs = ({
+  children,
+  index: controlledIndex,
+  defaultIndex = 0,
+  onTabChange,
+}) => {
+  const [uncontrolledIndex, setUncontrolledIndex] = useState(defaultIndex);
+  const isControlled = controlledIndex !== undefined;
+  const activeIndex = isControlled ? controlledIndex : uncontrolledIndex;
 
-  const tabList = [];
-  const tabPanels = [];
+  const tabs = [];
+  const panels = [];
 
-  Children.forEach(children, (child, index) => {
+  let tabCounter = 0;
+  let panelCounter = 0;
+
+  Children.forEach(children, (child) => {
     if (child.type.displayName === "TabsTab") {
-      tabList.push(
+      const tabIndex = tabCounter;
+      const value = child.props.value ?? tabIndex;
+
+      tabs.push(
         cloneElement(child, {
-          isActive: index === activeIndex,
-          onClick: () => setActiveIndex(index),
+          key: tabIndex,
+          isActive: tabIndex === activeIndex,
+          onClick: () => {
+            if (!isControlled) setUncontrolledIndex(tabIndex);
+            if (onTabChange) onTabChange(value);
+          },
         })
       );
+      tabCounter++;
     }
 
     if (child.type.displayName === "TabsPanel") {
-      tabPanels.push(index === activeIndex ? child : null);
+      panels.push(cloneElement(child, { key: panelCounter }));
+      panelCounter++;
     }
   });
 
   return (
     <TabsWrapper>
-      <TabList>{tabList}</TabList>
-      <TabPanelWrapper>{tabPanels}</TabPanelWrapper>
+      <TabList>{tabs}</TabList>
+      <TabPanelWrapper>{panels[activeIndex]}</TabPanelWrapper>
     </TabsWrapper>
   );
 };

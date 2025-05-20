@@ -39,20 +39,36 @@ export const Price = styled.p`
   font-size: 32px;
   font-weight: 700;
   margin: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   color: ${({ $color }) => $color || "#ccc"};
 `;
 export const PriceSuffix = styled.span`
   font-size: 16px;
   font-weight: 400;
   margin: 10px 0;
-
+  display: flex;
+  width: fit-content;
+  flex-direction: column;
   color: var(--price-suffix);
+`;
+export const Del = styled.del`
+  font-size: 12px;
+  font-weight: 400;
+  color: red;
 `;
 
 export const FeatureList = styled.ul`
   list-style: none;
   padding: 0;
   margin: 16px 0 50px;
+`;
+export const FeatureTitle = styled.h2`
+  font-size: 16px;
+  font-weight: 500;
+  font-family: var(--font-family-base);
+  color: var(--primary-color);
 `;
 
 export const FeatureItem = styled.li`

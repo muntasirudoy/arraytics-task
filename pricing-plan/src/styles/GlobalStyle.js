@@ -7,12 +7,17 @@ const GlobalStyle = createGlobalStyle`
     --price-suffix: #83a1b7;
     --tooltip-text-color: #49687E
   }
+ 
+  .tooltip-content img{
+    width: 100%;
+    height: auto;
+  }
 
   body {
     margin: 0;
     padding: 0;
     font-family: var(--font-family-base);
-    height: 100vh;
+    min-height: 100vh;
 background: linear-gradient(180deg, rgba(183, 141, 235, .1), rgba(183, 141, 235, 0) 28.39%), #fff;
   }
 

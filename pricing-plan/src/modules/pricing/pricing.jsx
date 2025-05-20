@@ -12,12 +12,26 @@ import {
   setSelectedGrowthPlan,
 } from "../../store/actions/pricing-action";
 import planData from "./plans.data.json";
+import { parseHTML } from "../../utils/parseHTML";
+import cardColors from "../../utils/card-color";
+import Tooltip from "../../components/ui/Tooltip";
+const groupPlansByName = (plans) => {
+  const grouped = {};
+  plans.forEach((plan) => {
+    if (!grouped[plan.name]) {
+      grouped[plan.name] = [plan];
+    } else {
+      grouped[plan.name].push(plan);
+    }
+  });
+  return grouped;
+};
 const Pricing = () => {
   const [selectedPlan, setSelectedPlan] = useState(null);
   const dispatch = useDispatch();
   const { plans, plansInfo, features, selectedCycle, selectedGrowthPlan } =
     useSelector((state) => state.plan);
-  console.log(selectedCycle, selectedGrowthPlan);
+  console.log(plans, selectedCycle, selectedGrowthPlan);
 
   useEffect(() => {
     dispatch(loadPlanData(planData));
@@ -29,22 +43,22 @@ const Pricing = () => {
   const handleGrowthSelect = (value) => {
     dispatch(setSelectedGrowthPlan(value));
   };
+  console.log(selectedCycle);
+
+  const [selectedVariantIndex, setSelectedVariantIndex] = useState(0);
+  const groupedPlans = groupPlansByName(plans);
   return (
     <PricingContainer>
       <TabContainer>
-        <Tabs defaultIndex={selectedCycle === "1_year" ? 1 : 0}>
-          <Tabs.Tab onClick={() => handleCycleChange("1_month")}>
-            Billed monthly
-          </Tabs.Tab>
-          <Tabs.Tab onClick={() => handleCycleChange("1_year")}>
-            Billed yearly
-          </Tabs.Tab>
-          <Tabs.Panel>
-            <p>This is the Monthly content.</p>
-          </Tabs.Panel>
-          <Tabs.Panel>
-            <p>This is the Yearly content.</p>
-          </Tabs.Panel>
+        <Tabs
+          onTabChange={handleCycleChange}
+          defaultIndex={selectedCycle === "1_year" ? 1 : 0}
+        >
+          {Object.entries(plansInfo).map(([planKey, planData], i) => (
+            <Tabs.Tab key={i} value={planKey}>
+              {planData.title}
+            </Tabs.Tab>
+          ))}
         </Tabs>
         <Badge
           bgColor={cardThemes["purple"].primary}
@@ -59,103 +73,94 @@ const Pricing = () => {
         </Badge>
       </TabContainer>
       <Grid>
-        <Card variant="green">
-          <Card.Header
-            title="Free"
-            price="$39"
-            subtitle="Up to <strong>50,000</strong> visitors/mont"
-            variant="green"
-            icon
-          />
-          <Dropdown
-            value={selectedPlan}
-            onChange={(val) => setSelectedPlan(val)}
-            variant="green"
-          >
-            <Dropdown.Trigger>Choose Plan</Dropdown.Trigger>
-            <Dropdown.Menu>
-              <Dropdown.Item value="monthly">Monthly</Dropdown.Item>
-              <Dropdown.Item value="yearly">Yearly</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-          <Card.Features>
-            <Card.Feature>Unlimited widgets</Card.Feature>
-            <Card.Feature>Traffic source targeting</Card.Feature>
-            <Card.Feature>Dynamic chat pop-up</Card.Feature>
-            <Card.Feature>Multiple agents</Card.Feature>
-            <Card.Feature>Get leads to email</Card.Feature>
-            <Card.Feature>Get leads to email</Card.Feature>
-            <Card.Feature>Get leads to email</Card.Feature>
-          </Card.Features>
-          <Card.Action label="Select Plan" onClick={() => {}} variant="green" />
-        </Card>
-        <Card variant="yellow">
-          <Card.Header
-            title="Free"
-            price="$39"
-            subtitle="Up to <strong>50,000</strong> visitors/mont"
-            variant="yellow"
-            icon
-          />
-          <Card.Features>
-            <Card.Feature>Unlimited widgets</Card.Feature>
-            <Card.Feature>Traffic source targeting</Card.Feature>
-            <Card.Feature>Dynamic chat pop-up</Card.Feature>
-            <Card.Feature>Multiple agents</Card.Feature>
-            <Card.Feature>Get leads to email</Card.Feature>
-            <Card.Feature>Get leads to email</Card.Feature>
-            <Card.Feature>Get leads to email</Card.Feature>
-          </Card.Features>
-          <Card.Action
-            label="Select Plan"
-            onClick={() => {}}
-            variant="yellow"
-          />
-        </Card>
-        <Card variant="blue">
-          <Card.Header
-            title="Free"
-            price="$39"
-            subtitle="Up to <strong>50,000</strong> visitors/mont"
-            badge="Most Popular"
-            variant="blue"
-            icon
-          />
+        {Object.entries(groupedPlans).map(([planName, variants], i) => {
+          const currentVariant = variants[selectedVariantIndex] || variants[0];
+          return (
+            <Card variant={cardColors[i]} key={planName}>
+              <Card.Header
+                title={currentVariant.name}
+                price={
+                  selectedCycle === "1_year"
+                    ? currentVariant.details["1_year"].price
+                    : currentVariant.details["2_year"].price
+                }
+                badge={planName === "Pro" ? "Most Popular" : ""}
+                variant={cardColors[i]}
+                suffix={currentVariant.details["1_year"].price_postfix}
+                del={
+                  selectedCycle === "2_year"
+                    ? currentVariant.details["1_year"].price
+                    : ""
+                }
+              />
 
-          <Card.Features>
-            <Card.Feature>Unlimited widgets</Card.Feature>
-            <Card.Feature>Traffic source targeting</Card.Feature>
-            <Card.Feature>Dynamic chat pop-up</Card.Feature>
-            <Card.Feature>Multiple agents</Card.Feature>
-            <Card.Feature>Get leads to email</Card.Feature>
-            <Card.Feature>Get leads to email</Card.Feature>
-            <Card.Feature>Get leads to email</Card.Feature>
-          </Card.Features>
-          <Card.Action label="Select Plan" onClick={() => {}} variant="blue" />
-        </Card>
-        <Card variant="purple">
-          <Card.Header
-            title="Free"
-            price="$39"
-            subtitle="Up to <strong>50,000</strong> visitors/mont"
-            variant="purple"
-            icon
-          />
-          <Card.Features>
-            <Card.Feature>Unlimited widgets</Card.Feature>
-            <Card.Feature>Traffic source targeting</Card.Feature>
-            <Card.Feature>Dynamic chat pop-up</Card.Feature>
-            <Card.Feature>Multiple agents</Card.Feature>
-            <Card.Feature>Get leads to email</Card.Feature>
-            <Card.Feature>Get leads to email</Card.Feature>
-            <Card.Feature>Get leads to email</Card.Feature>
-          </Card.Features>
-          <Card.Action
-            label="Select Plan"
-            onClick={() => {}}
-            variant="purple"
-          />
-        </Card>
+              {variants.length > 1 ? (
+                <Dropdown
+                  value={selectedVariantIndex}
+                  onChange={(val) => setSelectedVariantIndex(val)}
+                  variant={cardColors[i]}
+                >
+                  <Dropdown.Trigger>Choose Plan</Dropdown.Trigger>
+                  <Dropdown.Menu>
+                    {variants.map((variant, idx) => (
+                      <Dropdown.Item value={idx} key={idx}>
+                        <div
+                          dangerouslySetInnerHTML={parseHTML(variant.title)}
+                        />
+                      </Dropdown.Item>
+                    ))}
+                  </Dropdown.Menu>
+                </Dropdown>
+              ) : (
+                <Card.Subtitle variant={cardColors[i]} icon>
+                  {currentVariant.title}
+                </Card.Subtitle>
+              )}
+              <Card.Features>
+                <Card.FeatureTitle>
+                  {planName === "Free"
+                    ? "Free includes:"
+                    : "Everything in free plus:"}
+                </Card.FeatureTitle>
+                {features
+                  .filter((f) =>
+                    planName === "Free" ? f.is_pro === "0" : f.is_pro === "1"
+                  )
+                  .map((f, i) => (
+                    <>
+                      <Tooltip position="top">
+                        <Tooltip.Trigger>
+                          <span>
+                            <Card.Feature key={i}>
+                              {f.feature_title}
+                            </Card.Feature>
+                          </span>
+                        </Tooltip.Trigger>
+                        <Tooltip.Content>
+                          <div
+                            className="tooltip-content"
+                            dangerouslySetInnerHTML={parseHTML(f.feature_desc)}
+                          />
+                        </Tooltip.Content>
+                      </Tooltip>
+                    </>
+                  ))}
+              </Card.Features>
+
+              <Card.Action
+                label={currentVariant.details["1_year"].btn_text}
+                onClick={() => {
+                  console.log(
+                    "Plan selected:",
+                    currentVariant.name,
+                    currentVariant.details["1_year"].price_id
+                  );
+                }}
+                variant={cardColors[i]}
+              />
+            </Card>
+          );
+        })}
       </Grid>
     </PricingContainer>
   );

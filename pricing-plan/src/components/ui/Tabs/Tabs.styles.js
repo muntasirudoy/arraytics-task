@@ -18,6 +18,7 @@ export const TabList = styled.div`
 export const TabButton = styled.button`
   padding: 3px 0;
   font-size: 16px;
+  white-space: nowrap;
   font-weight: 600;
   font-family: var(--font-family-base);
   background: transparent;
@@ -34,7 +35,7 @@ export const TabButton = styled.button`
     `}
 
   &:hover {
-    color: #0070f3;
+    color: #b78deb;
   }
 `;
 
