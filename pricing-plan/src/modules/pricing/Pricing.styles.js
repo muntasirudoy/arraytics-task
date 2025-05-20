@@ -2,16 +2,14 @@ import styled from "styled-components";
 
 export const Grid = styled.div`
   display: grid;
-  gap: 24px;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
   width: 100%;
   padding: 16px;
-
-  @media (max-width: 768px) {
-    gap: 16px;
-  }
-
+  transition: all 0.3s ease;
+  justify-items: center;
   @media (max-width: 480px) {
+    margin: 0 auto;
     grid-template-columns: 1fr;
   }
 `;

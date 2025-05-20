@@ -1,17 +1,17 @@
 const cardThemes = {
   blue: {
-    primary: "#2196F3",
+    primary: "#4cb3fd",
     borderColor: "#eaeff2",
-    buttonColor: "#2196F3",
+    buttonColor: "#4cb3fd",
     subtitleBg: "#E3F2FD",
-    badgeColor: "#2196F3",
+    badgeColor: "#4cb3fd",
   },
   yellow: {
     borderColor: "#eaeff2",
-    buttonColor: "#FF9800",
+    buttonColor: "#ffb72c",
     subtitleBg: "#FFF3E0",
-    badgeColor: "#FF9800",
-    primary: "#FF9800",
+    badgeColor: "#ffb72c",
+    primary: "#ffb72c",
   },
   green: {
     borderColor: "#eaeff2",

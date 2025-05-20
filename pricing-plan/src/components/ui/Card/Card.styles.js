@@ -12,9 +12,9 @@ export const CardTopStripe = styled.div`
 export const CardContainer = styled.div`
   border: 1px solid ${({ $borderColor }) => $borderColor || "#ccc"};
   border-radius: 10px;
-  padding: 24px;
+  padding: 20px;
   width: 100%;
-  max-width: 258px;
+  min-width: 258px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   position: relative;
 `;

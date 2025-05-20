@@ -24,13 +24,13 @@ const Pricing = () => {
           </Card.Features>
           <Card.Action label="Select Plan" onClick={() => {}} variant="green" />
         </Card>
-        <Card variant="green">
+        <Card variant="yellow">
           <Card.Header
             title="Free"
             price="$39"
             subtitle="Up to <strong>50,000</strong> visitors/mont"
             badge="Most Popular"
-            variant="green"
+            variant="yellow"
           />
           <Card.Features>
             <Card.Feature>Unlimited widgets</Card.Feature>
@@ -41,15 +41,19 @@ const Pricing = () => {
             <Card.Feature>Get leads to email</Card.Feature>
             <Card.Feature>Get leads to email</Card.Feature>
           </Card.Features>
-          <Card.Action label="Select Plan" onClick={() => {}} variant="green" />
+          <Card.Action
+            label="Select Plan"
+            onClick={() => {}}
+            variant="yellow"
+          />
         </Card>
-        <Card variant="green">
+        <Card variant="blue">
           <Card.Header
             title="Free"
             price="$39"
             subtitle="Up to <strong>50,000</strong> visitors/mont"
             badge="Most Popular"
-            variant="green"
+            variant="blue"
           />
           <Card.Features>
             <Card.Feature>Unlimited widgets</Card.Feature>
@@ -60,7 +64,7 @@ const Pricing = () => {
             <Card.Feature>Get leads to email</Card.Feature>
             <Card.Feature>Get leads to email</Card.Feature>
           </Card.Features>
-          <Card.Action label="Select Plan" onClick={() => {}} variant="green" />
+          <Card.Action label="Select Plan" onClick={() => {}} variant="blue" />
         </Card>
         <Card variant="green">
           <Card.Header

@@ -7,19 +7,19 @@ export const Content = styled.div`
   box-sizing: border-box;
 
   @media (min-width: 320px) {
-    max-width: 300px;
+    max-width: 310px;
   }
   @media (min-width: 480px) {
-    max-width: 460px;
+    max-width: 470px;
   }
   @media (min-width: 576px) {
-    max-width: 540px;
+    max-width: 580px;
   }
   @media (min-width: 768px) {
-    max-width: 720px;
+    max-width: 680px;
   }
   @media (min-width: 992px) {
-    max-width: 960px;
+    max-width: 900px;
   }
   @media (min-width: 1200px) {
     max-width: 1140px;
