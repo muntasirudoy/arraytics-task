@@ -1,14 +1,17 @@
-import Badge from "../Badge/Badge";
 import {
   CardContainer,
+  CardHeader,
+  CardTitle,
   FeatureItem,
   FeatureList,
   Price,
+  SelectPlanButton,
   Subtitle,
 } from "./Card.styles";
+import Badge from "../Badge/Badge";
 
-const Card = ({ children }) => {
-  return <CardContainer>{children}</CardContainer>;
+const Card = ({ children, borderColor }) => {
+  return <CardContainer borderColor={borderColor}>{children}</CardContainer>;
 };
 
 const Header = ({ title, price, subtitle, badge }) => (
@@ -24,8 +27,10 @@ const Features = ({ children }) => <FeatureList>{children}</FeatureList>;
 
 const Feature = ({ children }) => <FeatureItem>{children}</FeatureItem>;
 
-const Action = ({ onClick, label }) => (
-  <SelectPlanButton onClick={onClick}>{label}</SelectPlanButton>
+const Action = ({ onClick, label, bgColor }) => (
+  <SelectPlanButton onClick={onClick} bgColor={bgColor}>
+    {label}
+  </SelectPlanButton>
 );
 
 Card.Header = Header;
@@ -33,5 +38,4 @@ Card.Features = Features;
 Card.Feature = Feature;
 Card.Action = Action;
 
-Card.displayName = "Card";
 export default Card;
