@@ -1,4 +1,5 @@
 import Card from "../../components/ui/Card/Card";
+import Dropdown from "../../components/ui/Dropdown/Dropdown";
 import { Grid } from "./Pricing.styles";
 
 const Pricing = () => {
@@ -56,6 +57,13 @@ const Pricing = () => {
             variant="blue"
             icon
           />
+          <Dropdown>
+            <Dropdown.Trigger>Choose Plan</Dropdown.Trigger>
+            <Dropdown.Menu>
+              <Dropdown.Item value="monthly">Monthly</Dropdown.Item>
+              <Dropdown.Item value="yearly">Yearly</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
           <Card.Features>
             <Card.Feature>Unlimited widgets</Card.Feature>
             <Card.Feature>Traffic source targeting</Card.Feature>
