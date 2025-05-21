@@ -1,6 +1,6 @@
-import InfoIcon from "../../icons/InfoIcon";
-import Tooltip from "../Tooltip/Tooltip";
-import { StyledBadge } from "./Badge.style";
+import InfoIcon from "../../icons/info-icon";
+import Tooltip from "../Tooltip/tooltip";
+import { StyledBadge } from "./badge.styles";
 
 const Badge = ({
   children,

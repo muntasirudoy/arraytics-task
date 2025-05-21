@@ -4,7 +4,7 @@ import {
   DropdownItem,
   DropdownMenu,
   DropdownTrigger,
-} from "./Dropdown.styles";
+} from "./dropdown.styles";
 import cardThemes from "../../../utils/card-theme";
 import Badge from "../Badge";
 import { stripHtml } from "../../../utils/parse-html";

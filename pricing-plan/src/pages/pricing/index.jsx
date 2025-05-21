@@ -1,10 +1,10 @@
 import Container from "../../components/layout/container";
-import Pricing from "../../modules/pricing/pricing";
+import { PricingModule } from "../../modules/pricing/pricing-module";
 
 const PricingPage = () => {
   return (
     <Container>
-      <Pricing />
+      <PricingModule />
     </Container>
   );
 };

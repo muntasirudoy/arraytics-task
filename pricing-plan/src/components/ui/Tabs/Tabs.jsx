@@ -4,7 +4,7 @@ import {
   TabList,
   TabPanelWrapper,
   TabsWrapper,
-} from "./Tabs.styles";
+} from "./tasbs.styles";
 
 const Tabs = ({
   children,

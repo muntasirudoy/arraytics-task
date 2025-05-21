@@ -14,7 +14,7 @@ import {
   TopBadge,
   Del,
   FeatureTitle,
-} from "./Card.styles";
+} from "./card-styles";
 
 const Card = ({ children, variant = "blue" }) => {
   const theme = cardThemes[variant] || cardThemes.blue;

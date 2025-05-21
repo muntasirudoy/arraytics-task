@@ -1,4 +1,3 @@
-// InfoIcon.jsx
 const InfoIcon = ({ size = 16, color = "currentColor", ...props }) => (
   <svg
     width={size}

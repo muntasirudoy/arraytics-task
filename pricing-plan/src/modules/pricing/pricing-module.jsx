@@ -9,7 +9,7 @@ import { parseHTML } from "../../utils/parse-html";
 import usePricing from "./pricing.hook";
 import { Grid, PricingContainer, TabContainer } from "./Pricing.styles";
 
-const Pricing = () => {
+export const PricingModule = () => {
   const {
     plansInfo,
     plans,
@@ -142,4 +142,4 @@ const Pricing = () => {
   );
 };
 
-export default Pricing;
+// export default Pricing;

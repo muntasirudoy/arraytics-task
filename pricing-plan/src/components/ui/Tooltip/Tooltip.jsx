@@ -1,6 +1,6 @@
 // Tooltip/index.js
 import { useState, cloneElement, Children } from "react";
-import { TooltipWrapper, TooltipBox } from "./Tooltip.styles";
+import { TooltipWrapper, TooltipBox } from "./tooltip.styles";
 
 const Tooltip = ({ children, position = "top" }) => {
   const [visible, setVisible] = useState(false);
