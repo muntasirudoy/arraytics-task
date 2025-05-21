@@ -93,7 +93,7 @@ const Dropdown = ({
   );
 };
 
-const Trigger = ({ children }) => {
+const Trigger = ({ children, ...props }) => {
   const { toggle, selectedItem, variant, isOpen } = useDropdownContext();
   const theme = cardThemes[variant] || cardThemes.blue;
   return (
@@ -103,6 +103,7 @@ const Trigger = ({ children }) => {
       $color={theme.primary}
       onClick={toggle}
       $open={isOpen}
+      {...props}
     >
       {stripHtml(selectedItem?.title) || children}
     </DropdownTrigger>
