@@ -10,7 +10,7 @@
  * @param {boolean} [props.icon] - If true, displays an info icon with a tooltip.
  */
 import InfoIcon from "../../icons/info-icon";
-import Tooltip from "../Tooltip/tooltips";
+import Tooltip from "../Tooltip/Tooltip";
 import { StyledBadge } from "./badge-styles";
 
 const Badge = ({
