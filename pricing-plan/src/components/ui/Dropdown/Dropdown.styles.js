@@ -62,11 +62,11 @@ export const DropdownTrigger = styled.button`
   &::after {
     content: "▾";
     position: absolute;
-    right: 16px;
+    right: 5px;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 12px;
-    color: #5f37ef;
+    font-size: 18px;
+    color: ${({ $color }) => $color};
   }
 `;
 
@@ -108,9 +108,9 @@ export const DropdownMenu = styled.ul`
   margin: 2px 0 0 0;
   z-index: 10;
 
-  animation: ${({ isOpen }) => (isOpen ? bounceIn : bounceOut)} 0.25s ease
+  animation: ${({ $open }) => ($open ? bounceIn : bounceOut)} 0.25s ease
     forwards;
-  pointer-events: ${({ isOpen }) => (isOpen ? "auto" : "none")};
+  pointer-events: ${({ $open }) => ($open ? "auto" : "none")};
 `;
 
 export const DropdownItem = styled.li`
@@ -122,9 +122,9 @@ export const DropdownItem = styled.li`
   transition: background 0.2s ease, color 0.2s ease;
   border: 1px solid #f6f4ff;
 
-  display: block; // or inline-block
-  width: 100%; // Ensure it respects container
-  max-width: 100%; // Prevent overflow
+  display: block;
+  width: 100%;
+  max-width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

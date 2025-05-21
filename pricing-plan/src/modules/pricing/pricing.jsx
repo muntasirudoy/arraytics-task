@@ -4,7 +4,7 @@ import Badge from "../../components/ui/Badge";
 import Card from "../../components/ui/Card/Card";
 import Dropdown from "../../components/ui/Dropdown/Dropdown";
 import Tooltip from "../../components/ui/Tooltip";
-import { parseHTML } from "../../utils/parseHTML";
+import { parseHTML, stripHtml } from "../../utils/parseHTML";
 import cardColors from "../../utils/card-color";
 import cardThemes from "../../utils/card-theme";
 import usePricing from "./pricing.hook";
@@ -19,7 +19,7 @@ const Pricing = () => {
     onCycleChange,
     onVariantChange,
   } = usePricing();
-  const stripHtml = (html) => html.replace(/<[^>]*>?/gm, "");
+
   return (
     <PricingContainer>
       <TabContainer>

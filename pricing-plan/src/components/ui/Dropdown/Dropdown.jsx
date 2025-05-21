@@ -6,6 +6,7 @@ import {
   DropdownTrigger,
 } from "./Dropdown.styles";
 import cardThemes from "../../../utils/card-theme";
+import Badge from "../Badge";
 
 const DropdownContext = createContext();
 
@@ -72,10 +73,7 @@ const Trigger = ({ children }) => {
 const Menu = ({ children }) => {
   const { isOpen } = useDropdownContext();
   return (
-    <DropdownMenu
-      isOpen={isOpen}
-      style={{ display: isOpen ? "block" : "none" }}
-    >
+    <DropdownMenu $open={isOpen} style={{ display: isOpen ? "block" : "none" }}>
       {children}
     </DropdownMenu>
   );

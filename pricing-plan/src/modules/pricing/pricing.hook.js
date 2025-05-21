@@ -13,7 +13,7 @@ const usePricing = () => {
     (state) => state.plan
   );
 
-  const [selectedVariantIndex, setSelectedVariantIndex] = useState(0);
+  const [selectedVariantIndex, setSelectedVariantIndex] = useState(1);
 
   useEffect(() => {
     dispatch(loadPlanData(planData));

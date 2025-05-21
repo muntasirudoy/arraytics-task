@@ -3,3 +3,5 @@ export const parseHTML = (htmlString) => {
   const cleaned = htmlString.replace(/<script[^>]*>([\s\S]*?)<\/script>/gi, "");
   return { __html: cleaned };
 };
+
+export const stripHtml = (html) => html.replace(/<[^>]*>?/gm, "");

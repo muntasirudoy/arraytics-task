@@ -62,7 +62,7 @@ export const Del = styled.del`
 export const FeatureList = styled.ul`
   list-style: none;
   padding: 0;
-  margin: 16px 0 50px;
+  margin: 40px 0 50px;
 `;
 export const FeatureTitle = styled.h2`
   font-size: 16px;
