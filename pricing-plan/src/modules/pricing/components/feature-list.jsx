@@ -9,7 +9,7 @@
  * @returns {JSX.Element} Rendered feature list with tooltips.
  */
 import Card from "../../../components/ui/Card/Card";
-import Tooltip from "../../../components/ui/Tooltip/tooltips";
+import Tooltip from "../../../components/ui/Tooltip";
 import { parseHTML } from "../../../utils/parse-html";
 
 const FeatureList = ({ title, features, activePlan }) => (
