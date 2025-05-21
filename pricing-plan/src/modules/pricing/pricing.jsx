@@ -19,7 +19,13 @@ const Pricing = () => {
     onCycleChange,
     onVariantChange,
   } = usePricing();
-
+  const renderPricingPlans = () => {
+    return Object.entries(plansInfo).map(([planKey, planData], i) => (
+      <Tabs.Tab key={i} value={planKey}>
+        {planData.title}
+      </Tabs.Tab>
+    ));
+  };
   return (
     <PricingContainer>
       <TabContainer>
@@ -27,11 +33,7 @@ const Pricing = () => {
           onTabChange={onCycleChange}
           defaultIndex={selectedCycle === "1_year" ? 1 : 0}
         >
-          {Object.entries(plansInfo).map(([planKey, planData], i) => (
-            <Tabs.Tab key={i} value={planKey}>
-              {planData.title}
-            </Tabs.Tab>
-          ))}
+          {renderPricingPlans()}
         </Tabs>
         <Badge
           bgColor={cardThemes.purple.primary}

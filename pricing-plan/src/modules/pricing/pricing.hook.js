@@ -12,8 +12,6 @@ const usePricing = () => {
   const { plans, plansInfo, features, selectedCycle, activePlans } =
     useSelector((state) => state.plan);
 
-  // const [selectedVariantIndex, setSelectedVariantIndex] = useState(1);
-
   useEffect(() => {
     dispatch(loadPlanData(planData));
   }, [dispatch]);
@@ -29,7 +27,6 @@ const usePricing = () => {
     selectedCycle,
     features,
     activePlans,
-    // selectedVariantIndex,
     onCycleChange: handleCycleChange,
     onVariantChange: handleVariantChange,
   };
