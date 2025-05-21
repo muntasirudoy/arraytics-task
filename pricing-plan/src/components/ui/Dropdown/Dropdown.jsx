@@ -7,6 +7,7 @@ import {
 } from "./Dropdown.styles";
 import cardThemes from "../../../utils/card-theme";
 import Badge from "../Badge";
+import { stripHtml } from "../../../utils/parse-html";
 
 const DropdownContext = createContext();
 
@@ -66,7 +67,7 @@ const Trigger = ({ children }) => {
       onClick={toggle}
       $open={isOpen}
     >
-      {selectedItem?.title || children}
+      {stripHtml(selectedItem?.title) || children}
     </DropdownTrigger>
   );
 };

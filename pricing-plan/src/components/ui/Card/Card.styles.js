@@ -43,6 +43,7 @@ export const Price = styled.p`
   align-items: center;
   gap: 10px;
   color: ${({ $color }) => $color || "#ccc"};
+  height: 60px;
 `;
 export const PriceSuffix = styled.span`
   font-size: 16px;

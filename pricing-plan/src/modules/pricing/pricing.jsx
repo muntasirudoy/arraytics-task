@@ -1,13 +1,13 @@
-import { Grid, TabContainer, PricingContainer } from "./Pricing.styles";
-import Tabs from "../../components/ui/Tabs";
 import Badge from "../../components/ui/Badge";
 import Card from "../../components/ui/Card/Card";
 import Dropdown from "../../components/ui/Dropdown/Dropdown";
+import Tabs from "../../components/ui/Tabs";
 import Tooltip from "../../components/ui/Tooltip";
-import { parseHTML, stripHtml } from "../../utils/parseHTML";
 import cardColors from "../../utils/card-color";
 import cardThemes from "../../utils/card-theme";
+import { parseHTML } from "../../utils/parse-html";
 import usePricing from "./pricing.hook";
+import { Grid, PricingContainer, TabContainer } from "./Pricing.styles";
 
 const Pricing = () => {
   const {
@@ -47,9 +47,20 @@ const Pricing = () => {
       </TabContainer>
 
       <Grid>
-        {Object.entries(groupedPlans).map(([planName, variants], i) => {
-          const currentVariant =
-            variants[selectedVariantIndex.id] || variants[0];
+        {Object.entries(plans).map(([planName, variants], i) => {
+          const activeVariant = activePlans[planName];
+          let currentVariant;
+          if (activeVariant) {
+            currentVariant =
+              variants.find(
+                (variant) =>
+                  variant.name === activeVariant.id &&
+                  variant.title === activeVariant.title
+              ) ?? variants[0];
+          } else {
+            currentVariant = variants[0];
+          }
+
           const currentDetails = currentVariant.details[selectedCycle];
           const baseDetails = currentVariant.details["1_year"];
           const showDelPrice = selectedCycle === "2_year";
@@ -73,7 +84,7 @@ const Pricing = () => {
 
               {variants.length > 1 ? (
                 <Dropdown
-                  value={selectedVariantIndex}
+                  value={activePlans[planName]}
                   onChange={onVariantChange}
                   variant={cardColors[i]}
                 >
@@ -82,8 +93,8 @@ const Pricing = () => {
                     {variants.map((variant, idx) => (
                       <Dropdown.Item
                         value={{
-                          title: stripHtml(variant.title),
-                          id: idx,
+                          title: variant.title,
+                          id: variant.name,
                         }}
                         key={idx}
                       >
