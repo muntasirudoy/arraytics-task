@@ -1,61 +1,19 @@
-# 🚀 Dynamic Pricing Table UI
+# Arraytics Task
 
-A fully responsive and dynamic pricing table UI built using **React**, **Redux**, and **Styled-Components**—with no UI libraries. Every element, including dropdowns and tooltips, is custom-built. The app follows SOLID principles, React best practices, and a modular architecture.
+**This repository contains the solution for a multi-part React development task. The project has been structured into three separate branches to address each problem individually.**
 
----
+## 🔀 Branch Structure
 
-## Developer Note
+- **`problem-1`**: Implements a responsive pricing table similar to the [Chaty Pricing Page](https://chaty.app/pricing/), built with:
+  - Redux (without Redux Toolkit)
+  - Styled Components for CSS-in-JS
+  - Fully custom dropdown and tooltip components
+  - Dynamic JSON-driven plan management
+  - Responsive and clean component-based architecture
 
-If TypeScript had been used, the implementation could have been even faster, cleaner, and more optimized in terms of type safety and maintainability. However, I made sure to strictly follow all the project requirements as provided, focusing on accuracy and completeness within the defined constraints.
+- **`problem-2`**: Contains an optimized version of a simple React product list application where:
+  - Users can add new products with a name and price
+  - Code is organized for readability and maintainability
+  - React best practices for performance optimization are applied
 
-## 📌 Requirements Fulfilled
-
-- ✅ Responsive UI
-- ✅ Redux for state management
-- ✅ No UI libraries used (custom dropdowns, tooltips, badges, tabs)
-- ✅ Clean, modular, and component-based codebase
-- ✅ Styled-Components used for styling
-- ✅ Data-driven dynamic table rendering
-- ✅ Follows SOLID principles and DRY code
-- ✅ Git and GitHub version control
-
----
-
-## 🏗️ Tech Stack
-
-- **React (via Vite)**
-- **Redux**
-- **Styled-Components**
-- **JavaScript (ES6+)**
-- **Vite**
-
----
-
-## 🧩 Features
-
-- ⚙️ Dynamic dropdown rendering based on pricing data
-- 🧠 UI updates automatically when plans are added or removed
-- 🧼 Custom reusable components:
-  - `Card`, `Tooltip`, `Tabs`, `Dropdown`, `Badge`, `Container`
-- 💬 Tooltip explanations built without external libraries
-- 💡 Compound components and hooks used where appropriate
-- 🧩 Extensible architecture for easy addition of features
-
----
-
-## 📁 Folder Structure
-
-```bash
-src/
-├── assets/                  # Static assets
-├── components/              # Shared UI components
-│   ├── ui/                  # Cards, Dropdowns, Tabs, Tooltips, etc.
-│   └── layout/              # Container layout
-├── modules/pricing/         # Pricing logic, UI, data, hooks
-│   └── components/          # PlanCard, FeatureList, PlanDropdown
-├── pages/                   # Pricing page
-├── store/                   # Redux actions, reducers, store
-├── styles/                  # Global styles
-├── utils/                   # Utilities and helpers
-└── main.jsx                 # App entry point
-
+- **`problem-3`**: Refactors an existing codebase into a clean and modular structure with a focus on maintainability and scalability.
