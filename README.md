@@ -8,6 +8,8 @@ A fully responsive and dynamic pricing table UI built using **React**, **Redux**
 
 If TypeScript had been used, the implementation could have been even faster, cleaner, and more optimized in terms of type safety and maintainability. However, I made sure to strictly follow all the project requirements as provided, focusing on accuracy and completeness within the defined constraints.
 
+ [Live Pricing Plan](https://arraytics-task-l8rt-bf1owhdcu-muntasirudoys-projects.vercel.app/)
+
 ## 📌 Requirements Fulfilled
 
 - ✅ Responsive UI
