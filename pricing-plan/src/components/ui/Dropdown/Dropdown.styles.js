@@ -13,6 +13,11 @@ export const DropdownTrigger = styled.button`
   font-size: 13px;
   border-radius: 5px;
   text-transform: capitalize;
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   background-color: ${({ $bgColor, $opacity = 0.1 }) =>
     $bgColor
       ? `${$bgColor}${
@@ -102,6 +107,7 @@ export const DropdownMenu = styled.ul`
   padding: 0;
   margin: 2px 0 0 0;
   z-index: 10;
+
   animation: ${({ isOpen }) => (isOpen ? bounceIn : bounceOut)} 0.25s ease
     forwards;
   pointer-events: ${({ isOpen }) => (isOpen ? "auto" : "none")};
@@ -112,10 +118,17 @@ export const DropdownItem = styled.li`
   font-size: 14px;
   cursor: pointer;
   font-weight: 400;
-
   color: #333;
   transition: background 0.2s ease, color 0.2s ease;
   border: 1px solid #f6f4ff;
+
+  display: block; // or inline-block
+  width: 100%; // Ensure it respects container
+  max-width: 100%; // Prevent overflow
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
   &:hover {
     background-color: ${({ $hoverBgColor, $opacity = 0.1 }) =>
       $hoverBgColor

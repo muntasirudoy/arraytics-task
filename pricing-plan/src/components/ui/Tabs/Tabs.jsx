@@ -9,10 +9,10 @@ import {
 const Tabs = ({
   children,
   index: controlledIndex,
-  defaultIndex = 0,
+
   onTabChange,
 }) => {
-  const [uncontrolledIndex, setUncontrolledIndex] = useState(defaultIndex);
+  const [uncontrolledIndex, setUncontrolledIndex] = useState(0);
   const isControlled = controlledIndex !== undefined;
   const activeIndex = isControlled ? controlledIndex : uncontrolledIndex;
 

@@ -85,11 +85,12 @@ const Item = ({ value, children }) => {
   const { selectItem, variant, selectedItem } = useDropdownContext();
   const isSelected = selectedItem === value;
   const theme = cardThemes[variant] || cardThemes.blue;
+
   return (
     <DropdownItem
       $hoverBgColor={theme.primary}
       $color={theme.primary}
-      isSelected={isSelected}
+      $isSelected={isSelected}
       onClick={() => selectItem(value)}
     >
       {children}
