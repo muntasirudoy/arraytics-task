@@ -12,10 +12,10 @@ import usePricing from "./pricing.hook";
 const Pricing = () => {
   const {
     plansInfo,
-    groupedPlans,
+    plans,
     selectedCycle,
     features,
-    selectedVariantIndex,
+    activePlans,
     onCycleChange,
     onVariantChange,
   } = usePricing();
