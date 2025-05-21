@@ -19,6 +19,13 @@ export const TabContainer = styled.div`
   transition: all 0.3s ease;
   display: flex;
   margin: 0 auto;
+    @media (min-width: 320px) and (max-width: 575px) {
+    flex-direction: column;
+    align-items-center;
+    justify-content:center;
+    gap:10px;
+    align-items:center
+  }
 `;
 
 export const PricingContainer = styled.div`

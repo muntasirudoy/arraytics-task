@@ -43,14 +43,15 @@ export const Price = styled.p`
   align-items: center;
   gap: 10px;
   color: ${({ $color }) => $color || "#ccc"};
-  height: 60px;
+  height: 35px;
 `;
 export const PriceSuffix = styled.span`
   font-size: 16px;
   font-weight: 400;
-  margin: 10px 0;
+  margin: 0px 0;
   display: flex;
   width: fit-content;
+
   flex-direction: column;
   color: var(--price-suffix);
 `;
