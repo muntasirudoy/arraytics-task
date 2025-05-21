@@ -1,4 +1,5 @@
 import {
+  CHANGE_ACTIVE_PLAN_VARIATION,
   LOAD_PLAN_DATA,
   SET_BILLING_CYCLE,
   SET_SELECTED_GROWTH_PLAN,
@@ -20,11 +21,21 @@ const pricingReducer = (state = initialState, action) => {
         plans: action.payload.plans,
         plansInfo: action.payload.plansInfo,
         features: action.payload.features,
+        activePlans: action.payload.activePlans,
       };
     case SET_BILLING_CYCLE:
       return { ...state, selectedCycle: action.payload };
     case SET_SELECTED_GROWTH_PLAN:
       return { ...state, selectedGrowthPlan: action.payload };
+
+    case CHANGE_ACTIVE_PLAN_VARIATION:
+      return {
+        ...state,
+        activePlans: {
+          ...state.activePlans,
+          [action.payload.id]: action.payload,
+        },
+      };
     default:
       return state;
   }
