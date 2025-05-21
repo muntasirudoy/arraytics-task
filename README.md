@@ -4,7 +4,7 @@
 
 ## 🔀 Branch Structure
 
-- **`problem-1`**: Implements a responsive pricing table [Live Pricing Plan](https://arraytics-task-l8rt-bf1owhdcu-muntasirudoys-projects.vercel.app/) similar to the [Chaty Pricing Page](https://chaty.app/pricing/),
+- **`problem-1`**: Implements a responsive pricing table [Live Pricing Plan](https://arraytics-task-l8rt.vercel.app/) similar to the [Chaty Pricing Page](https://chaty.app/pricing/),
 
  built with:
 
