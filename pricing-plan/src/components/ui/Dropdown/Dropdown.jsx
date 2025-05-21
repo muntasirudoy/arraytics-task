@@ -56,7 +56,7 @@ const Dropdown = ({
 };
 
 const Trigger = ({ children }) => {
-  const { toggle, selectedItem, variant } = useDropdownContext();
+  const { toggle, selectedItem, variant, isOpen } = useDropdownContext();
   const theme = cardThemes[variant] || cardThemes.blue;
   return (
     <DropdownTrigger
@@ -64,8 +64,9 @@ const Trigger = ({ children }) => {
       $bgColor={theme.primary}
       $color={theme.primary}
       onClick={toggle}
+      $open={isOpen}
     >
-      {selectedItem || children}
+      {selectedItem?.title || children}
     </DropdownTrigger>
   );
 };
@@ -81,7 +82,8 @@ const Menu = ({ children }) => {
 
 const Item = ({ value, children }) => {
   const { selectItem, variant, selectedItem } = useDropdownContext();
-  const isSelected = selectedItem === value;
+
+  const isSelected = selectedItem === value.id;
   const theme = cardThemes[variant] || cardThemes.blue;
 
   return (

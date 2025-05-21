@@ -60,7 +60,7 @@ export const DropdownTrigger = styled.button`
   }
 
   &::after {
-    content: "▾";
+    content: ${({ $open }) => ($open ? '"▴"' : '"▾"')};
     position: absolute;
     right: 5px;
     top: 50%;

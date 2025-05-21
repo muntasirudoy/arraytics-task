@@ -46,7 +46,8 @@ const Pricing = () => {
 
       <Grid>
         {Object.entries(groupedPlans).map(([planName, variants], i) => {
-          const currentVariant = variants[selectedVariantIndex] || variants[0];
+          const currentVariant =
+            variants[selectedVariantIndex.id] || variants[0];
           const currentDetails = currentVariant.details[selectedCycle];
           const baseDetails = currentVariant.details["1_year"];
           const showDelPrice = selectedCycle === "2_year";
@@ -77,7 +78,13 @@ const Pricing = () => {
                   <Dropdown.Trigger>Choose Plan</Dropdown.Trigger>
                   <Dropdown.Menu>
                     {variants.map((variant, idx) => (
-                      <Dropdown.Item value={stripHtml(variant.title)} key={idx}>
+                      <Dropdown.Item
+                        value={{
+                          title: stripHtml(variant.title),
+                          id: idx,
+                        }}
+                        key={idx}
+                      >
                         <div
                           dangerouslySetInnerHTML={parseHTML(variant.title)}
                         />

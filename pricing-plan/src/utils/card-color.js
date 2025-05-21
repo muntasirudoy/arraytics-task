@@ -1,3 +1,3 @@
-const cardColors = ["blue", "green", "purple", "yellow"];
+const cardColors = ["blue", "yellow", "green", "purple"];
 
 export default cardColors;
