@@ -1,6 +1,17 @@
+/** *
+ * @component
+ * @param {object} props - Component props.
+ * @param {React.ReactNode} props.children - Content to be displayed inside the badge.
+ * @param {string} [props.bgColor] - Background color of the badge.
+ * @param {boolean} [props.rounded] - If true, applies rounded corners to the badge.
+ * @param {number|string} [props.opacity] - Opacity of the badge.
+ * @param {string} [props.color] - Text color of the badge.
+ * @param {string} [props.padding] - Padding inside the badge.
+ * @param {boolean} [props.icon] - If true, displays an info icon with a tooltip.
+ */
 import InfoIcon from "../../icons/info-icon";
-import Tooltip from "../Tooltip/tooltip";
-import { StyledBadge } from "./badge.styles";
+import Tooltip from "../Tooltip/tooltips";
+import { StyledBadge } from "./badge-styles";
 
 const Badge = ({
   children,

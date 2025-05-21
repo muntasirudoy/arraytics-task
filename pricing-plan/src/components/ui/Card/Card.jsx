@@ -1,3 +1,6 @@
+/**
+ * @module Card
+ */
 import cardThemes from "../../../utils/card-theme";
 import Badge from "../Badge";
 

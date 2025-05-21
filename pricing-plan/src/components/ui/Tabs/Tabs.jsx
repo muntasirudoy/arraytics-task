@@ -1,10 +1,42 @@
+/**
+
+ *
+ * Supports both controlled and uncontrolled usage.
+ *
+ * @component
+ * @param {Object} props
+ * @param {React.ReactNode} props.children - The child components, should be Tabs.Tab and Tabs.Panel.
+ * @param {number} [props.index] - Controlled active tab index.
+ * @param {function} [props.onTabChange] - Callback fired when the tab is changed. Receives the tab value.
+ * @returns {JSX.Element}
+ */
+
+/**
+ * Tab button component for use within Tabs.
+ *
+ * @component
+ * @param {Object} props
+ * @param {React.ReactNode} props.children - The tab label.
+ * @param {boolean} props.isActive - Whether the tab is currently active.
+ * @param {function} props.onClick - Click handler for the tab.
+ * @returns {JSX.Element}
+ */
+
+/**
+ * Tab panel component for use within Tabs.
+ *
+ * @component
+ * @param {Object} props
+ * @param {React.ReactNode} props.children - The content of the panel.
+ * @returns {JSX.Element}
+ */
 import { useState, Children, cloneElement } from "react";
 import {
   TabButton,
   TabList,
   TabPanelWrapper,
   TabsWrapper,
-} from "./tasbs.styles";
+} from "./tasbs-styles";
 
 const Tabs = ({
   children,
