@@ -10,12 +10,25 @@
  */
 import Card from "../../../components/ui/Card/Card";
 import Tooltip from "../../../components/ui/Tooltip";
-import { parseHTML } from "../../../utils/parse-html";
+import { parseHTML, stripHtml } from "../../../utils/parse-html";
 
 const FeatureList = ({ title, features, activePlan }) => (
   <>
     <Card.FeatureTitle>{title}</Card.FeatureTitle>
-    <Card.Feature>{activePlan}</Card.Feature>
+    <Tooltip position="top">
+      <Tooltip.Trigger>
+        <span>
+          <Card.Feature>{stripHtml(activePlan.title ?? "")}</Card.Feature>
+        </span>
+      </Tooltip.Trigger>
+      <Tooltip.Content>
+        <div
+          className="tooltip-content"
+          dangerouslySetInnerHTML={parseHTML(activePlan.text)}
+        />
+      </Tooltip.Content>
+    </Tooltip>
+
     {features.map((f, i) => (
       <Tooltip key={i} position="top">
         <Tooltip.Trigger>

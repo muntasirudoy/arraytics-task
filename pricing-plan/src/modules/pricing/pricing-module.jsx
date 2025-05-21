@@ -2,7 +2,6 @@ import Badge from "../../components/ui/Badge";
 import Tabs from "../../components/ui/Tabs";
 import cardColors from "../../utils/card-color";
 import cardThemes from "../../utils/card-theme";
-import { stripHtml } from "../../utils/parse-html";
 import FeatureList from "./components/feature-list";
 import PlanCard from "./components/plan-card";
 import PlanDropdown from "./components/plan-dropdown";
@@ -101,13 +100,14 @@ export const PricingModule = () => {
                     variants={variants}
                     active={activePlans[planName]}
                     onChange={onVariantChange}
+                    theme={cardColors[i]}
                   />
                 ) : null
               }
               features={
                 <FeatureList
                   title={featureTitle}
-                  activePlan={stripHtml(currentVariant.title ?? "")}
+                  activePlan={currentVariant}
                   features={filteredFeatures}
                 />
               }

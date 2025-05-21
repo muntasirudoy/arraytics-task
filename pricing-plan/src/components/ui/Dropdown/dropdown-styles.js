@@ -6,7 +6,11 @@ export const DropdownContainer = styled.div`
   max-width: 240px;
   font-family: "Inter", sans-serif;
 `;
-
+export const DrodownIcon = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
 export const DropdownTrigger = styled.button`
   width: 100%;
   padding: 8px 12px;
@@ -18,6 +22,7 @@ export const DropdownTrigger = styled.button`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
   background-color: ${({ $bgColor, $opacity = 0.1 }) =>
     $bgColor
       ? `${$bgColor}${
